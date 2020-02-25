@@ -1,38 +1,18 @@
 import React, { Component } from "react";
-import { fetchArticle } from "../api";
+import { fetchArticle, fetchComments } from "../../api";
+import Votes from "../Votes";
 
 class Article extends Component {
   state = {
     article: {},
-    comments: [
-      {
-        comment_id: 44,
-        author: "grumpy19",
-        article_id: 1,
-        votes: 4,
-        created_at: "2017-11-20T08:58:48.322Z",
-        body:
-          "Error est qui id corrupti et quod enim accusantium minus. Deleniti quae ea magni officiis et qui suscipit non."
-      },
-      {
-        comment_id: 52,
-        author: "jessjelly",
-        article_id: 1,
-        votes: 10,
-        created_at: "2017-07-31T08:14:13.076Z",
-        body:
-          "Consectetur deleniti sed. Omnis et dolore omnis aspernatur. Et porro accusantium. Tempora ullam voluptatum et rerum."
-      }
-    ]
+    comments: []
   };
   render() {
     const { article } = this.state;
     return (
       <div>
-        <h1>
-          {article.title} Votes: {article.votes}
-        </h1>
-        <h2>
+        <h1>{article.title}</h1>
+        <h2 className="articleStamp">
           By {article.author} at {article.created_at}
         </h2>
         <p>{article.body}</p>
@@ -42,6 +22,7 @@ class Article extends Component {
             return (
               <li key={comment.comment_id}>
                 <h3>{comment.author}</h3>
+                <Votes content={comment} type="comment" />
                 <p>{comment.body}</p>
                 <p>posted at: {comment.created_at}</p>
               </li>
@@ -54,10 +35,17 @@ class Article extends Component {
 
   componentDidMount() {
     this.getArticle();
+    this.getComments();
   }
-
+  getComments = () => {
+    fetchComments(this.props.article_id).then(comments => {
+      this.setState({ comments });
+    });
+  };
   getArticle = () => {
     fetchArticle(this.props.article_id).then(article => {
+      console.log(article);
+
       this.setState({ article });
     });
   };

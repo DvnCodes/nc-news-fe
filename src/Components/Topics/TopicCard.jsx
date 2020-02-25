@@ -5,12 +5,13 @@ class TopicCard extends Component {
   render() {
     return (
       <div>
-        <Link to={`/articles?topic=${this.props.topic.slug}`}>
-          <li>
+        <li>
+          <Link to={`/topics/${this.props.topic.slug}`}>
             <h2>{this.props.topic.slug}</h2>
-            <p>{this.props.topic.description}</p>
-          </li>
-        </Link>
+          </Link>
+
+          <p>{this.props.topic.description}</p>
+        </li>
       </div>
     );
   }

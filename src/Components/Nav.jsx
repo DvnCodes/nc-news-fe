@@ -1,12 +1,19 @@
 import React from "react";
 import { Link } from "@reach/router";
+import "./Nav.css";
 
 const Nav = () => {
   return (
     <nav>
-      <Link to="/home">home</Link>
-      <Link to="/topics">topics</Link>
-      <Link to="/articles">articles</Link>
+      <Link to="/home">
+        <span>Home</span>
+      </Link>
+      <Link to="/topics">
+        <span>Topics</span>
+      </Link>
+      <Link to="/articles">
+        <span>Articles</span>
+      </Link>
     </nav>
   );
 };

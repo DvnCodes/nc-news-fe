@@ -1,0 +1,23 @@
+nav {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  background-color: rosybrown;
+  text-decoration: none;
+  color: aliceblue;
+  font-size: x-large;
+  width: 50vw;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  justify-content: center;
+}
+
+span:hover {
+  background-color: rgb(59, 59, 59);
+  text-align: center;
+}

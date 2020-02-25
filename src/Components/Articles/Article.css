@@ -1,0 +1,10 @@
+h2 {
+  size: 8vh;
+  width: 50vw;
+  margin: 7px;
+  color: white;
+}
+
+h2:hover {
+  background-color: rgb(59, 59, 59);
+}
