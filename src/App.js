@@ -19,14 +19,14 @@ class App extends Component {
           <Topics path="/topics/*" />
           {/* <Topics path="/topics/:topic" /> */}
           <Home path="/home" />
-          <Article path="articles/:article_id" />
+          <Article path="articles/:article_id" user={this.state.user} />
         </Router>
       </div>
     );
   }
 
   login = () => {
-    this.setState({ user: "Anon" });
+    this.setState({ user: "cooljmessy" });
   };
 }
 

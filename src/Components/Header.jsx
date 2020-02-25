@@ -12,7 +12,7 @@ class Header extends Component {
         </h1>
         <Nav />
         {!this.props.user ? (
-          <button onClick={this.props.login}>Login as Anon</button>
+          <button onClick={this.props.login}>Login as cooljmessy</button>
         ) : (
           <p>Logged in as {this.props.user}</p>
         )}

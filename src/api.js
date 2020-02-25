@@ -42,3 +42,19 @@ export const patchContentVotes = (id, inc, type) => {
       return data[type];
     });
 };
+
+export const postComment = (body, username, article_id) => {
+  console.log(body, username, article_id);
+
+  return axios
+    .post(
+      `https://dans-nc-news.herokuapp.com/api/articles/${article_id}/comments`,
+      { body, username }
+    )
+    .then(({ data }) => {
+      return data;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};

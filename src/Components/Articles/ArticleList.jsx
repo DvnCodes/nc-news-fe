@@ -21,7 +21,7 @@ const ArticleList = props => {
       </button>
       <button
         onClick={() => {
-          props.getArticles(undefined, "date_created");
+          props.getArticles(undefined, "created_at");
         }}
       >
         Sort By Newest
