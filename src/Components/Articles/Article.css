@@ -1,10 +1,15 @@
-h2 {
-  size: 8vh;
-  width: 50vw;
-  margin: 7px;
-  color: white;
-}
-
 h2:hover {
   background-color: rgb(59, 59, 59);
+}
+
+article {
+  margin: 4vw 4vw 0vw 4vw;
+  font-size: 1.5em;
+}
+
+.articleStamp {
+  color: rgb(173, 10, 52);
+  font-size: 1.5em;
+  margin: 0vw 4vw 0vw 4vw;
+  padding: 0;
 }

@@ -12,7 +12,8 @@ export const fetchArticles = (topic, sort) => {
     })
     .then(({ data }) => {
       return data.articles;
-    });
+    })
+    .catch(err => err);
 };
 
 export const fetchTopics = () => {
@@ -20,7 +21,8 @@ export const fetchTopics = () => {
     .get("https://dans-nc-news.herokuapp.com/api/topics")
     .then(({ data }) => {
       return data.topics;
-    });
+    })
+    .catch(err => err);
 };
 
 export const fetchArticle = id => {
@@ -34,18 +36,15 @@ export const fetchComments = id => {
 };
 
 export const patchContentVotes = (id, inc, type) => {
-  console.log("url: ", baseURL + type + "s/" + id, { inc_votes: inc });
-
   return axios
     .patch(baseURL + type + "s/" + id, { inc_votes: inc })
     .then(({ data }) => {
       return data[type];
-    });
+    })
+    .catch(err => err);
 };
 
 export const postComment = (body, username, article_id) => {
-  console.log(body, username, article_id);
-
   return axios
     .post(
       `https://dans-nc-news.herokuapp.com/api/articles/${article_id}/comments`,
@@ -54,20 +53,14 @@ export const postComment = (body, username, article_id) => {
     .then(({ data }) => {
       return data;
     })
-    .catch(err => {
-      console.log(err);
-    });
+    .catch(err => err);
 };
 
 export const deleteComment = comment_id => {
-  console.log(comment_id);
-
   return axios
     .delete(`https://dans-nc-news.herokuapp.com/api/comments/${comment_id}`)
     .then(({ data }) => {
       return data;
     })
-    .catch(err => {
-      console.log(err);
-    });
+    .catch(err => err);
 };

@@ -11,21 +11,21 @@ const ArticleList = props => {
             props.getArticles(undefined, "votes");
           }}
         >
-          Sort By Votes
+          Votes
         </button>
         <button
           onClick={() => {
             props.getArticles(undefined, "comment_count");
           }}
         >
-          Sort By Most Comments
+          Most Comments
         </button>
         <button
           onClick={() => {
             props.getArticles(undefined, "created_at");
           }}
         >
-          Sort By Newest
+          Newest
         </button>
       </div>
       <ul>

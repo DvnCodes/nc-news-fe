@@ -1,43 +1,61 @@
 import React, { Component } from "react";
-import { fetchArticle, fetchComments } from "../../api";
+import { fetchArticle } from "../../api";
 import Toggle from "../Toggle";
-import * as api from "../../api";
 import CommentList from "../Comments/CommentList";
+import "./Article.css";
+import Votes from "../Votes";
+import ErrorPage from "../ErrorPage";
 
 class Article extends Component {
   state = {
     article: {},
     comments: [],
-    comment: ""
+    comment: "",
+    err: null
   };
-  render() {
-    const { article } = this.state;
-    return (
-      <div>
-        <h1>{article.title}</h1>
-
-        <article>{article.body}</article>
-        <div className="articleStamp">
-          By {article.author} at {article.created_at}
-        </div>
-        <Toggle buttonText="Comments">
-          <CommentList
-            article_id={this.props.article_id}
-            user={this.props.user}
-          />
-        </Toggle>
-      </div>
-    );
-  }
-
   componentDidMount() {
     this.getArticle();
   }
 
+  render() {
+    const { article } = this.state;
+    return (
+      <div>
+        {this.state.err === null ? (
+          <main>
+            <h1>{article.title}</h1>
+            <article className="body">{article.body}</article>
+            <div className="articleStamp">
+              By {article.author + " "}
+              {new Date(Date.parse(article.created_at)).toLocaleString()}
+            </div>
+            <Toggle buttonText="Comments">
+              <CommentList
+                article_id={this.props.article_id}
+                user={this.props.user}
+              />
+            </Toggle>
+          </main>
+        ) : (
+          <ErrorPage err={this.state.err} />
+        )}
+      </div>
+    );
+  }
+
   getArticle = () => {
-    fetchArticle(this.props.article_id).then(article => {
-      this.setState({ article });
-    });
+    if (isNaN(this.props.article_id)) {
+      this.setState({ err: { msg: "Bad Request", status: "400" } });
+    } else {
+      fetchArticle(this.props.article_id)
+        .then(article => {
+          this.setState({ article });
+        })
+        .catch(err => {
+          const { status, data } = err.response;
+          this.setState({ err: { msg: data.msg, status: status } });
+        });
+    }
   };
 }
 

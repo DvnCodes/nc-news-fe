@@ -7,6 +7,7 @@ import Topics from "./Components/Topics/Topics";
 import Home from "./Components/Home";
 
 import React, { Component } from "react";
+import ErrorPage from "./Components/ErrorPage";
 
 class App extends Component {
   state = { user: null };
@@ -20,6 +21,7 @@ class App extends Component {
           {/* <Topics path="/topics/:topic" /> */}
           <Home path="/home" />
           <Article path="articles/:article_id" user={this.state.user} />
+          <ErrorPage default err={{ msg: "Not Found", status: "404" }} />
         </Router>
       </div>
     );

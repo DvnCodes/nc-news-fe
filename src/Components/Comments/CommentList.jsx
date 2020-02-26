@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Votes from "../Votes";
 import * as api from "../../api";
+import "./CommentList.css";
 
 class CommentList extends Component {
   state = {
@@ -10,27 +11,25 @@ class CommentList extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="CommentList">
         <br />
         {this.props.user ? (
-          <form onSubmit={this.handleSubmit}>
+          <form className="commentBox" onSubmit={this.handleSubmit}>
             <textarea
-              name=""
-              id=""
-              cols="100"
+              required
+              cols="50"
               rows="5"
               onChange={this.handleChange}
             ></textarea>
-            <button>Post!</button>
+            <button className="postButton">Post!</button>
           </form>
         ) : (
-          <p>Log in to post comments</p>
+          <p className="loginprompt">Log in to post comments</p>
         )}
         <ul>
           {this.state.comments.map(comment => {
             return (
               <li key={comment.comment_id}>
-                <h3>{comment.author}</h3>
                 {comment.author === this.props.user ? (
                   <button
                     onClick={() => {
@@ -42,9 +41,12 @@ class CommentList extends Component {
                 ) : (
                   <Votes content={comment} type="comment" />
                 )}
-
                 <p>{comment.body}</p>
-                <p>posted at: {comment.created_at}</p>
+
+                <p className="commentStamp">
+                  {new Date(Date.parse(comment.created_at)).toLocaleString()} by{" "}
+                  {comment.author}
+                </p>
               </li>
             );
           })}

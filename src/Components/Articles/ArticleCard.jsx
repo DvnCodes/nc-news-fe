@@ -6,7 +6,7 @@ import Votes from "../Votes";
 class ArticleCard extends Component {
   render() {
     return (
-      <div>
+      <div className="card">
         <li>
           <Link to={`/articles/${this.props.article.article_id}`}>
             <h2>{this.props.article.title} </h2>
