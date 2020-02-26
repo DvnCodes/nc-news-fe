@@ -58,3 +58,16 @@ export const postComment = (body, username, article_id) => {
       console.log(err);
     });
 };
+
+export const deleteComment = comment_id => {
+  console.log(comment_id);
+
+  return axios
+    .delete(`https://dans-nc-news.herokuapp.com/api/comments/${comment_id}`)
+    .then(({ data }) => {
+      return data;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};

@@ -15,47 +15,25 @@ class Article extends Component {
     return (
       <div>
         <h1>{article.title}</h1>
-        <h2 className="articleStamp">
+
+        <article>{article.body}</article>
+        <div className="articleStamp">
           By {article.author} at {article.created_at}
-        </h2>
-        <p>{article.body}</p>
+        </div>
         <Toggle buttonText="Comments">
-          <CommentList article_id={this.props.article_id} />
+          <CommentList
+            article_id={this.props.article_id}
+            user={this.props.user}
+          />
         </Toggle>
       </div>
     );
   }
 
-  handleChange = e => {
-    this.setState({ comment: e.target.value });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-
-    api
-      .postComment(
-        this.state.comment,
-        this.props.user,
-        this.state.article.article_id
-      )
-      .then(({ comment }) => {
-        this.setState(currentState => {
-          const newComments = [comment, ...currentState.comments];
-          return { comments: newComments };
-        });
-      });
-  };
-
   componentDidMount() {
     this.getArticle();
-    this.getComments();
   }
-  getComments = () => {
-    fetchComments(this.props.article_id).then(comments => {
-      this.setState({ comments });
-    });
-  };
+
   getArticle = () => {
     fetchArticle(this.props.article_id).then(article => {
       this.setState({ article });

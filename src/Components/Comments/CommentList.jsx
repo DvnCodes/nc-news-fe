@@ -32,7 +32,11 @@ class CommentList extends Component {
               <li key={comment.comment_id}>
                 <h3>{comment.author}</h3>
                 {comment.author === this.props.user ? (
-                  <button onClick={() => console.log("delete comment")}>
+                  <button
+                    onClick={() => {
+                      return this.removeComment(comment.comment_id);
+                    }}
+                  >
                     Delete
                   </button>
                 ) : (
@@ -48,9 +52,41 @@ class CommentList extends Component {
       </div>
     );
   }
+  handleChange = e => {
+    this.setState({ comment: e.target.value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+
+    api
+      .postComment(this.state.comment, this.props.user, this.props.article_id)
+      .then(({ comment }) => {
+        this.setState(currentState => {
+          const newComments = [comment, ...currentState.comments];
+          return { comments: newComments };
+        });
+      });
+  };
+
   componentDidMount() {
     this.getComments();
   }
+  getComments = () => {
+    api.fetchComments(this.props.article_id).then(comments => {
+      this.setState({ comments });
+    });
+  };
+
+  removeComment = (id, i) => {
+    api.deleteComment(id);
+    this.setState(currentState => {
+      const newComments = [...currentState.comments].filter(comment => {
+        return comment.comment_id !== id;
+      });
+      return { comments: newComments };
+    });
+  };
   getComments = () => {
     api.fetchComments(this.props.article_id).then(comments => {
       this.setState({ comments });
