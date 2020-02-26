@@ -5,14 +5,17 @@ import "./Header.css";
 class Header extends Component {
   render() {
     return (
-      <div>
+      <div className="header">
         <h1>
           <img src={require("../northcoders-logo.png")} alt="" width="250px" />
           News
         </h1>
         <Nav />
+
         {!this.props.user ? (
-          <button onClick={this.props.login}>Login as cooljmessy</button>
+          <div className="loginContainer">
+            <button onClick={this.props.login}>Login as cooljmessy</button>
+          </div>
         ) : (
           <p>Logged in as {this.props.user}</p>
         )}

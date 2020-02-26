@@ -11,22 +11,25 @@ class Votes extends Component {
   render() {
     return (
       <div>
+        <div className="upvoteButton">
+          <button
+            onClick={() => {
+              this.handleVote(1);
+            }}
+          >
+            upvote
+          </button>
+        </div>
         <p>Votes: {this.state.votes}</p>
-
-        <button
-          onClick={() => {
-            this.handleVote(1);
-          }}
-        >
-          upvote
-        </button>
-        <button
-          onClick={() => {
-            this.handleVote(-1);
-          }}
-        >
-          downvote
-        </button>
+        <div className="downvoteButton">
+          <button
+            onClick={() => {
+              this.handleVote(-1);
+            }}
+          >
+            downvote
+          </button>
+        </div>
       </div>
     );
   }

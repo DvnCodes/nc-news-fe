@@ -1,13 +1,13 @@
 body {
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  /* flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   font-family: "Montserrat", sans-serif;
   background-color: darkgrey;
-  margin: 20px 50px;
-  padding: 20px 20px;
-  text-align: center;
+  margin: 0;
+  /* padding: 20px 20px; */
+  /* text-align: center; */
 }
 
 h1 {

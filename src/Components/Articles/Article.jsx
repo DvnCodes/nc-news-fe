@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { fetchArticle, fetchComments } from "../../api";
-import Votes from "../Votes";
 import Toggle from "../Toggle";
 import * as api from "../../api";
+import CommentList from "../Comments/CommentList";
 
 class Article extends Component {
   state = {
@@ -20,33 +20,7 @@ class Article extends Component {
         </h2>
         <p>{article.body}</p>
         <Toggle buttonText="Comments">
-          <br />
-          {this.props.user ? (
-            <form onSubmit={this.handleSubmit}>
-              <textarea
-                name=""
-                id=""
-                cols="100"
-                rows="5"
-                onChange={this.handleChange}
-              ></textarea>
-              <button>Post!</button>
-            </form>
-          ) : (
-            <p>Log in to post comments</p>
-          )}
-          <ul>
-            {this.state.comments.map(comment => {
-              return (
-                <li key={comment.comment_id}>
-                  <h3>{comment.author}</h3>
-                  <Votes content={comment} type="comment" />
-                  <p>{comment.body}</p>
-                  <p>posted at: {comment.created_at}</p>
-                </li>
-              );
-            })}
-          </ul>
+          <CommentList article_id={this.props.article_id} />
         </Toggle>
       </div>
     );
@@ -66,8 +40,6 @@ class Article extends Component {
         this.state.article.article_id
       )
       .then(({ comment }) => {
-        console.log(comment);
-
         this.setState(currentState => {
           const newComments = [comment, ...currentState.comments];
           return { comments: newComments };

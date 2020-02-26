@@ -1,40 +1,72 @@
 .listbox {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
   margin: 5px;
+  text-align: center;
+  padding: 0;
 }
 
-.navlinks {
-  width: 300px;
-  border: solid cornflowerblue;
-  margin: 20px;
-  list-style-type: none;
-  padding: 10px;
-  margin: 20px;
+/* .listbox h1 {
+  margin: 0;
   text-align: center;
-}
+} */
 
 h1 {
-  margin: 0;
+  font-size: 7vh;
+  margin: 1vh;
 }
-h2 {
-  size: 8vh;
-  width: 50vw;
-  margin: 7px;
+
+.listbox h2 {
+  text-align: center;
+  margin: 0;
+  padding: 2%;
   background-color: rgb(59, 59, 59);
   color: white;
 }
 
-h2:hover {
+.listbox h2:hover {
+  margin: 0;
+
   background-color: rosybrown;
 }
 
 ul {
+  text-align: center;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-p {
+.listbox p {
   margin: 5px;
+}
+
+.listbox .sortButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+.listbox .sortButtons button {
+  font-size: 2vh;
+  color: white;
+  background-color: mediumpurple;
+}
+
+.upvoteButton button {
+  width: 11vh;
+  font-size: 2vh;
+  color: rgb(59, 59, 59);
+  background-color: mediumspringgreen;
+}
+
+.downvoteButton button {
+  width: 11vh;
+
+  font-size: 2vh;
+  color: white;
+  background-color: mediumvioletred;
 }
