@@ -2,12 +2,14 @@ import axios from "axios";
 
 const baseURL = "https://dans-nc-news.herokuapp.com/api/";
 
-export const fetchArticles = (topic, sort) => {
+export const fetchArticles = (topic, sort, limit, p) => {
   return axios
     .get(baseURL + "articles", {
       params: {
         topic: topic,
-        sort_by: sort
+        sort_by: sort,
+        limit: limit,
+        p: p
       }
     })
     .then(({ data }) => {
@@ -29,9 +31,13 @@ export const fetchArticle = id => {
   return axios.get(baseURL + "articles/" + id).then(({ data }) => data.article);
 };
 
-export const fetchComments = id => {
+export const fetchComments = (id, p) => {
   return axios
-    .get(baseURL + "articles/" + id + "/comments")
+    .get(baseURL + "articles/" + id + "/comments", {
+      params: {
+        p: p
+      }
+    })
     .then(({ data }) => data.comments);
 };
 

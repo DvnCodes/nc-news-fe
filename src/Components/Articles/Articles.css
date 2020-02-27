@@ -26,7 +26,7 @@ h1 {
   margin: 0;
   background-color: rgb(59, 59, 59);
   color: white;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 .listbox h2:hover {
@@ -60,22 +60,28 @@ h1 {
 .upvoteButton button {
   -webkit-appearance: none;
   font-size: 1em;
-  color: rgb(59, 59, 59);
-  margin: 0.5em;
+  color: lightgray;
+  margin: 0em;
+  padding: 0;
+  background-color: transparent;
+  border: none;
 }
 .upvoteButton button:disabled {
-  background-color: mediumspringgreen;
+  color: mediumspringgreen;
 }
 
 .downvoteButton button {
   -webkit-appearance: none;
   font-size: 1em;
-  color: rgb(59, 59, 59);
-  margin: 0.5em 0 1em 0;
+  color: lightgray;
+  margin: 0em;
+  padding: 0;
+  background-color: transparent;
+  border: none;
 }
 
 .downvoteButton button:disabled {
-  background-color: mediumvioletred;
+  color: mediumvioletred;
 }
 
 .CommentsToggleContainer {
@@ -92,17 +98,17 @@ h1 {
 }
 
 .voteDiv {
-  height: 4.3em;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 1em;
+  align-items: flex-end;
   color: rgb(173, 10, 52);
+  margin-right: 20px;
 }
 .voteDiv p {
   font-size: 1.5em;
-  width: 100%;
+  width: 2em;
+  text-align: end;
   margin: 0;
 }
 
@@ -111,4 +117,13 @@ h1 {
   height: 8vh;
   color: white;
   background-color: mediumpurple;
+}
+
+.pageButtons {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+.pageButtons button {
+  font-size: 1em;
 }

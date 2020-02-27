@@ -18,10 +18,10 @@ class Votes extends Component {
               this.handleVote(1);
             }}
           >
-            upvote
+            ⬆
           </button>
         </div>
-        <p>Votes: {this.state.votes}</p>
+        <p>{this.state.votes}</p>
         <div className="downvoteButton">
           <button
             disabled={this.state.votes < this.props.content.votes}
@@ -29,7 +29,7 @@ class Votes extends Component {
               this.handleVote(-1);
             }}
           >
-            downvote
+            ⬇
           </button>
         </div>
       </div>

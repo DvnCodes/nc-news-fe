@@ -9,6 +9,9 @@ class CommentList extends Component {
     comments: [],
     comment: ""
   };
+  componentDidMount() {
+    this.getComments();
+  }
   render() {
     return (
       <div className="CommentList">
@@ -41,16 +44,20 @@ class CommentList extends Component {
                 ) : (
                   <Votes content={comment} type="comment" />
                 )}
-                <p>{comment.body}</p>
-
-                <p className="commentStamp">
-                  {new Date(Date.parse(comment.created_at)).toLocaleString()} by{" "}
-                  {comment.author}
-                </p>
+                <div className="commentInfo">
+                  <p>{comment.body}</p>
+                  <p className="commentStamp">
+                    {new Date(Date.parse(comment.created_at)).toLocaleString()}{" "}
+                    by {comment.author}
+                  </p>
+                </div>
               </li>
             );
           })}
         </ul>
+        <div className="LoadMoreComments">
+          <button>Load More</button>
+        </div>
       </div>
     );
   }
@@ -71,9 +78,6 @@ class CommentList extends Component {
       });
   };
 
-  componentDidMount() {
-    this.getComments();
-  }
   getComments = () => {
     api.fetchComments(this.props.article_id).then(comments => {
       this.setState({ comments });

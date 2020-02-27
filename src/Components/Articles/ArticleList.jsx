@@ -1,11 +1,12 @@
 import React from "react";
 import ArticleCard from "./ArticleCard";
 import "./Articles.css";
+import { Router } from "@reach/router";
 
 const ArticleList = props => {
   return (
     <>
-      <div className="sortButtons">
+      <div path="/articles/*" className="sortButtons">
         <button
           onClick={() => {
             props.getArticles(undefined, "votes");

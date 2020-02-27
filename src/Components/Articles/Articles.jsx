@@ -6,11 +6,12 @@ import "./Articles.css";
 class Articles extends Component {
   state = {
     articles: [],
-    topic: ""
+    topic: "",
+    page: 1
   };
 
-  getArticles = (topic, sort) => {
-    api.fetchArticles(topic, sort).then(articles => {
+  getArticles = (topic, sort, limit, p) => {
+    api.fetchArticles(topic, sort, limit, p).then(articles => {
       this.setState({ articles });
     });
   };
@@ -33,9 +34,19 @@ class Articles extends Component {
           articles={this.state.articles}
           getArticles={this.getArticles}
         />
+        <div className="pageButtons">
+          <button onClick={() => this.changePage("next")}>NEXT</button>
+          <button onClick={() => this.changePage("prev")}>PREV</button>
+        </div>
       </div>
     );
   }
+
+  changePage = direction => {
+    const navigateToPage = this.state.page + (direction === "next" ? 1 : -1);
+    this.getArticles(null, null, null, navigateToPage);
+    this.setState({ page: navigateToPage });
+  };
 }
 
 export default Articles;
