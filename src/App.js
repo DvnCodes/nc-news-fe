@@ -17,8 +17,8 @@ class App extends Component {
         <Header login={this.login} user={this.state.user} />
         <Router>
           <Articles path="/articles" />
-          <Topics path="/topics/*" />
-          {/* <Topics path="/topics/:topic" /> */}
+          <Topics path="/topics" />
+          <Topics path="topics/:topic" />
           <Home path="/home" />
           <Article path="articles/:article_id" user={this.state.user} />
           <ErrorPage default err={{ msg: "Not Found", status: "404" }} />

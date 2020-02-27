@@ -10,7 +10,7 @@ const ArticleList = props => {
         <div path="/articles/*" className="sortButtons">
           <button
             onClick={() => {
-              props.getArticles(undefined, "votes");
+              props.getArticles(props.topic, "votes");
               props.changePage("reset");
             }}
           >
@@ -18,7 +18,7 @@ const ArticleList = props => {
           </button>
           <button
             onClick={() => {
-              props.getArticles(undefined, "comment_count");
+              props.getArticles(props.topic, "comment_count");
               props.changePage("reset");
             }}
           >
@@ -26,7 +26,7 @@ const ArticleList = props => {
           </button>
           <button
             onClick={() => {
-              props.getArticles(undefined, "created_at");
+              props.getArticles(props.topic, "created_at");
               props.changePage("reset");
             }}
           >

@@ -1,14 +1,17 @@
-import React from "react";
 import TopicCard from "./TopicCard";
 import "./Topics.css";
 
+import React from "react";
+
 const TopicList = props => {
   return (
-    <ul className="topicList">
-      {props.topics.map(topic => {
-        return <TopicCard key={topic.slug} topic={topic} />;
-      })}
-    </ul>
+    <div>
+      <ul className="topicList">
+        {props.topics.map(topic => {
+          return <TopicCard key={topic.slug} topic={topic} />;
+        })}
+      </ul>
+    </div>
   );
 };
 

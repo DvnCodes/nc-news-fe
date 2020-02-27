@@ -14,8 +14,7 @@ export const fetchArticles = (topic, sort, limit, p) => {
     })
     .then(({ data }) => {
       return data.articles;
-    })
-    .catch(err => err);
+    });
 };
 
 export const fetchTopics = () => {
