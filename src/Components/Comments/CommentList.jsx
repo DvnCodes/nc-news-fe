@@ -7,7 +7,8 @@ class CommentList extends Component {
   state = {
     article: {},
     comments: [],
-    comment: ""
+    comment: "",
+    limit: 10
   };
   componentDidMount() {
     this.getComments();
@@ -35,6 +36,7 @@ class CommentList extends Component {
               <li key={comment.comment_id}>
                 {comment.author === this.props.user ? (
                   <button
+                    className="deleteCommentButton"
                     onClick={() => {
                       return this.removeComment(comment.comment_id);
                     }}
@@ -56,7 +58,7 @@ class CommentList extends Component {
           })}
         </ul>
         <div className="LoadMoreComments">
-          <button>Load More</button>
+          <button onClick={this.loadMoreComments}>Load More</button>
         </div>
       </div>
     );
@@ -93,10 +95,15 @@ class CommentList extends Component {
       return { comments: newComments };
     });
   };
-  getComments = () => {
-    api.fetchComments(this.props.article_id).then(comments => {
+  getComments = limit => {
+    api.fetchComments(this.props.article_id, limit).then(comments => {
       this.setState({ comments });
     });
+  };
+  loadMoreComments = () => {
+    const newLimit = this.state.limit + 10;
+    this.getComments(newLimit);
+    this.setState({ limit: newLimit });
   };
 }
 

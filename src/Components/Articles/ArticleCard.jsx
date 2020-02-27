@@ -9,7 +9,7 @@ class ArticleCard extends Component {
       <li className="card">
         <div className="articleinfo">
           <Link to={`/articles/${this.props.article.article_id}`}>
-            <h2>{this.props.article.title} </h2>
+            <h2>{this.props.article.title}</h2>
           </Link>
           <p>Topic: {this.props.article.topic}</p>
           <p>By: {this.props.article.author}</p>

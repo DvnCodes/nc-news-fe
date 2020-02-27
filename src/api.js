@@ -31,11 +31,11 @@ export const fetchArticle = id => {
   return axios.get(baseURL + "articles/" + id).then(({ data }) => data.article);
 };
 
-export const fetchComments = (id, p) => {
+export const fetchComments = (id, limit) => {
   return axios
     .get(baseURL + "articles/" + id + "/comments", {
       params: {
-        p: p
+        limit: limit
       }
     })
     .then(({ data }) => data.comments);

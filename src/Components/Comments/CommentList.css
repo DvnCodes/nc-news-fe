@@ -44,3 +44,7 @@
   padding: 0.5em;
   border: ridge;
 }
+
+.deleteCommentButton {
+  -webkit-appearance: none;
+}
