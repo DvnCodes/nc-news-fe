@@ -33,19 +33,29 @@ class Articles extends Component {
         <ArticleList
           articles={this.state.articles}
           getArticles={this.getArticles}
+          changePage={this.changePage}
         />
         <div className="pageButtons">
-          <button onClick={() => this.changePage("next")}>NEXT</button>
-          <button onClick={() => this.changePage("prev")}>PREV</button>
+          {this.state.articles.length < 10 ? null : (
+            <button onClick={() => this.changePage("next")}>NEXT</button>
+          )}
+          {this.state.page}{" "}
+          {this.state.page > 1 ? (
+            <button onClick={() => this.changePage("prev")}>PREV</button>
+          ) : null}
         </div>
       </div>
     );
   }
 
-  changePage = direction => {
-    const navigateToPage = this.state.page + (direction === "next" ? 1 : -1);
-    this.getArticles(null, null, null, navigateToPage);
-    this.setState({ page: navigateToPage });
+  changePage = page => {
+    if (page === "reset") {
+      this.setState({ page: 1 });
+    } else {
+      const navigateToPage = this.state.page + (page === "next" ? 1 : -1);
+      this.getArticles(null, null, null, navigateToPage);
+      this.setState({ page: navigateToPage });
+    }
   };
 }
 

@@ -8,6 +8,7 @@ nav {
   font-size: x-large;
   text-align: center;
   margin: 1vh;
+  border-radius: 25px;
 }
 
 a {
@@ -22,4 +23,5 @@ span:hover {
   background-color: rgb(59, 59, 59);
   text-align: center;
   padding: 1vh;
+  border-radius: 25px;
 }

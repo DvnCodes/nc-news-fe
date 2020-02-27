@@ -6,6 +6,7 @@
   background-color: rgb(59, 59, 59);
   color: antiquewhite;
   padding: 0.5em;
+  border-radius: 25px;
 }
 .home .homelist h2:hover {
   background-color: rgb(173, 10, 52);

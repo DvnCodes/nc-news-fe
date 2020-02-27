@@ -35,7 +35,7 @@ h1 {
 
 .listbox ul {
   text-align: center;
-  padding: 0;
+  padding: 20 20, 20 20;
   margin: 0;
   list-style: none;
 }
@@ -54,7 +54,10 @@ h1 {
 .listbox .sortButtons button {
   font-size: 1em;
   color: white;
-  background-color: mediumpurple;
+  background-color: rosybrown;
+  padding: 5px;
+  width: 7em;
+  border-radius: 25px;
 }
 
 .upvoteButton button {
@@ -117,6 +120,11 @@ h1 {
   height: 8vh;
   color: white;
   background-color: mediumpurple;
+  border-radius: 25px;
+}
+
+textarea {
+  border-radius: 25px;
 }
 
 .pageButtons {

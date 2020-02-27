@@ -3,6 +3,7 @@ import * as api from "../../api";
 import TopicList from "./TopicList";
 import { Router } from "@reach/router";
 import ArticleList from "../Articles/ArticleList";
+import "./Topics.css";
 
 class Topics extends Component {
   state = {
@@ -31,12 +32,14 @@ class Topics extends Component {
 
   render() {
     return (
-      <div>
+      <div className="topics">
         <h1>Topics</h1>
         <TopicList topics={this.state.topics} />
-        <Router>
-          <ArticleList path=":topic" articles={this.state.articles} />
-        </Router>
+        <div>
+          <Router className="topicsArticleList">
+            <ArticleList path=":topic" articles={this.state.articles} />
+          </Router>
+        </div>
       </div>
     );
   }

@@ -80,12 +80,6 @@ class CommentList extends Component {
       });
   };
 
-  getComments = () => {
-    api.fetchComments(this.props.article_id).then(comments => {
-      this.setState({ comments });
-    });
-  };
-
   removeComment = (id, i) => {
     api.deleteComment(id);
     this.setState(currentState => {
@@ -96,9 +90,12 @@ class CommentList extends Component {
     });
   };
   getComments = limit => {
-    api.fetchComments(this.props.article_id, limit).then(comments => {
-      this.setState({ comments });
-    });
+    api
+      .fetchComments(this.props.article_id, limit)
+      .then(comments => {
+        this.setState({ comments });
+      })
+      .catch(err => err);
   };
   loadMoreComments = () => {
     const newLimit = this.state.limit + 10;

@@ -11,6 +11,7 @@ const ArticleList = props => {
           <button
             onClick={() => {
               props.getArticles(undefined, "votes");
+              props.changePage("reset");
             }}
           >
             Votes
@@ -18,6 +19,7 @@ const ArticleList = props => {
           <button
             onClick={() => {
               props.getArticles(undefined, "comment_count");
+              props.changePage("reset");
             }}
           >
             Most Comments
@@ -25,13 +27,14 @@ const ArticleList = props => {
           <button
             onClick={() => {
               props.getArticles(undefined, "created_at");
+              props.changePage("reset");
             }}
           >
             Newest
           </button>
         </div>
       ) : null}
-      <ul>
+      <ul className="topicsArticleList">
         {props.articles.map(article => {
           return <ArticleCard key={article.article_id} article={article} />;
         })}

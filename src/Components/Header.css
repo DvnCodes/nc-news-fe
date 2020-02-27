@@ -14,7 +14,7 @@ h1 {
   align-content: center;
   background-color: rgb(59, 59, 59);
   color: white;
-  padding: 2vw;
+  padding: 3vw;
   text-align: center;
 }
 
@@ -27,4 +27,5 @@ h1 {
   font-size: 1.5em;
   color: white;
   background-color: mediumpurple;
+  border-radius: 25px;
 }
