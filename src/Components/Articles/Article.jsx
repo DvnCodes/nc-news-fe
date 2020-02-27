@@ -45,7 +45,8 @@ class Article extends Component {
 
   getArticle = () => {
     if (isNaN(this.props.article_id)) {
-      this.setState({ err: { msg: "Bad Request", status: "400" } });
+    } else if (this.props.article_id > 999999999) {
+      this.setState({ err: { msg: "Not Found", status: "404" } });
     } else {
       fetchArticle(this.props.article_id)
         .then(article => {
