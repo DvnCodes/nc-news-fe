@@ -10,7 +10,8 @@ class Article extends Component {
     article: {},
     comments: [],
     comment: "",
-    err: null
+    err: null,
+    isLoading: true
   };
   componentDidMount() {
     this.getArticle();
@@ -20,23 +21,29 @@ class Article extends Component {
     const { article } = this.state;
     return (
       <div>
-        {this.state.err === null ? (
-          <main>
-            <h1>{article.title}</h1>
-            <article className="body">{article.body}</article>
-            <div className="articleStamp">
-              By {article.author + " "}
-              {new Date(Date.parse(article.created_at)).toLocaleString()}
-            </div>
-            <Toggle buttonText="Comments">
-              <CommentList
-                article_id={this.props.article_id}
-                user={this.props.user}
-              />
-            </Toggle>
-          </main>
+        {this.state.isLoading ? (
+          <h2>Loading...</h2>
         ) : (
-          <ErrorPage err={this.state.err} />
+          <div>
+            {this.state.err === null ? (
+              <main>
+                <h1>{article.title}</h1>
+                <article className="body">{article.body}</article>
+                <div className="articleStamp">
+                  By {article.author + " "}
+                  {new Date(Date.parse(article.created_at)).toLocaleString()}
+                </div>
+                <Toggle buttonText="Comments">
+                  <CommentList
+                    article_id={this.props.article_id}
+                    user={this.props.user}
+                  />
+                </Toggle>
+              </main>
+            ) : (
+              <ErrorPage err={this.state.err} />
+            )}
+          </div>
         )}
       </div>
     );
@@ -50,7 +57,7 @@ class Article extends Component {
     } else {
       fetchArticle(this.props.article_id)
         .then(article => {
-          this.setState({ article });
+          this.setState({ article, isLoading: false });
         })
         .catch(err => {
           const { status, data } = err.response;

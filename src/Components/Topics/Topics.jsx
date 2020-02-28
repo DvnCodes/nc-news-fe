@@ -10,7 +10,8 @@ class Topics extends Component {
   state = {
     topics: [],
     articles: [],
-    err: null
+    err: null,
+    isLoading: true
   };
 
   componentDidMount() {
@@ -29,26 +30,31 @@ class Topics extends Component {
       <div className="topics">
         {this.state.err === null ? (
           <>
-            <h1>Topics</h1>
-            <TopicList topics={this.state.topics} />
-            <div>
-              {this.props.topic ? (
-                // <Router className="topicsArticleList">
-                <>
-                  {this.props.user ? (
-                    <PostArticleToTopic
-                      topic={this.props.topic}
-                      user={this.props.user}
-                      addArticle={this.addArticle}
-                    />
-                  ) : (
-                    <p>Log in to post an article</p>
-                  )}
-                  <ArticleList articles={this.state.articles} />
-                </>
-              ) : null}
-              {/* </Router> */}
-            </div>
+            {this.state.isLoading ? (
+              <h2>Loading...</h2>
+            ) : (
+              <>
+                <h1>Topics</h1>
+
+                <TopicList topics={this.state.topics} />
+                <div>
+                  {this.props.topic ? (
+                    <>
+                      {this.props.user ? (
+                        <PostArticleToTopic
+                          topic={this.props.topic}
+                          user={this.props.user}
+                          addArticle={this.addArticle}
+                        />
+                      ) : (
+                        <p>Log in to post an article</p>
+                      )}
+                      <ArticleList articles={this.state.articles} />
+                    </>
+                  ) : null}
+                </div>
+              </>
+            )}
           </>
         ) : (
           <ErrorPage err={this.state.err} />
@@ -56,6 +62,7 @@ class Topics extends Component {
       </div>
     );
   }
+
   getTopics = () => {
     api
       .fetchTopics()
@@ -70,7 +77,7 @@ class Topics extends Component {
     api
       .fetchArticles(this.props.topic, null, null, null)
       .then(articles => {
-        this.setState({ articles });
+        this.setState({ articles, isLoading: false });
       })
       .catch(err => {
         const { status, data } = err.response;

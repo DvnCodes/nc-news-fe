@@ -7,7 +7,8 @@ class Articles extends Component {
   state = {
     articles: [],
     topic: "",
-    page: 1
+    page: 1,
+    isLoading: true
   };
 
   componentDidMount() {
@@ -24,20 +25,26 @@ class Articles extends Component {
     return (
       <div className="listbox">
         <h1>Articles</h1>
-        <ArticleList
-          articles={this.state.articles}
-          getArticles={this.getArticles}
-          changePage={this.changePage}
-        />
-        <div className="pageButtons">
-          {this.state.articles.length < 10 ? null : (
-            <button onClick={() => this.changePage("next")}>NEXT</button>
-          )}
-          <span className="pageNum"> {this.state.page}</span>
-          {this.state.page > 1 ? (
-            <button onClick={() => this.changePage("prev")}>PREV</button>
-          ) : null}
-        </div>
+        {this.state.isLoading ? (
+          <h2>Loading...</h2>
+        ) : (
+          <div>
+            <ArticleList
+              articles={this.state.articles}
+              getArticles={this.getArticles}
+              changePage={this.changePage}
+            />
+            <div className="pageButtons">
+              {this.state.articles.length < 10 ? null : (
+                <button onClick={() => this.changePage("next")}>NEXT</button>
+              )}
+              <span className="pageNum"> {this.state.page}</span>
+              {this.state.page > 1 ? (
+                <button onClick={() => this.changePage("prev")}>PREV</button>
+              ) : null}
+            </div>
+          </div>
+        )}
       </div>
     );
   }
@@ -45,7 +52,7 @@ class Articles extends Component {
     api
       .fetchArticles(topic, sort, limit, p)
       .then(articles => {
-        this.setState({ articles });
+        this.setState({ articles, isLoading: false });
       })
       .catch(err => {
         return console.log(err.response);
