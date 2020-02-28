@@ -42,9 +42,14 @@ class Articles extends Component {
     );
   }
   getArticles = (topic, sort, limit, p) => {
-    api.fetchArticles(topic, sort, limit, p).then(articles => {
-      this.setState({ articles });
-    });
+    api
+      .fetchArticles(topic, sort, limit, p)
+      .then(articles => {
+        this.setState({ articles });
+      })
+      .catch(err => {
+        return console.log(err.response);
+      });
   };
 
   changePage = page => {
