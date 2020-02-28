@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { fetchArticle } from "../../api";
+import { fetchArticle, deleteArticle } from "../../api";
 import Toggle from "../Toggle";
 import CommentList from "../Comments/CommentList";
 import "./Article.css";
 import ErrorPage from "../ErrorPage";
+import { Link } from "@reach/router";
 
 class Article extends Component {
   state = {
@@ -33,6 +34,13 @@ class Article extends Component {
                   By {article.author + " "}
                   {new Date(Date.parse(article.created_at)).toLocaleString()}
                 </div>
+
+                {this.props.user === article.author ? (
+                  <Link to="/articles">
+                    <button onClick={this.handleDelete}>Delete</button>
+                  </Link>
+                ) : null}
+
                 <Toggle buttonText="Comments">
                   <CommentList
                     article_id={this.props.article_id}
@@ -48,6 +56,10 @@ class Article extends Component {
       </div>
     );
   }
+
+  handleDelete = () => {
+    deleteArticle(this.props.article_id);
+  };
 
   getArticle = () => {
     if (isNaN(this.props.article_id)) {

@@ -12,6 +12,10 @@
   margin: 0 0vw 0 0vw;
   list-style: none;
 }
+.CommentList form {
+  display: flex;
+  flex-direction: column;
+}
 
 .CommentList li {
   display: flex;

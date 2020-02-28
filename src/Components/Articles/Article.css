@@ -3,6 +3,10 @@ article {
   font-size: 1em;
 }
 
+article.body {
+  word-wrap: break-word;
+}
+
 .articleStamp {
   color: rgb(173, 10, 52);
   font-size: 1em;

@@ -78,3 +78,12 @@ export const postArticle = article => {
     })
     .catch(err => err);
 };
+
+export const deleteArticle = article_id => {
+  return axios
+    .delete(`https://dans-nc-news.herokuapp.com/api/articles/${article_id}`)
+    .then(({ data }) => {
+      return data;
+    })
+    .catch(err => err);
+};
