@@ -19,6 +19,7 @@ class App extends Component {
           <Articles path="/articles" />
           <Topics path="/topics" />
           <Topics path="topics/:topic" />
+          <Home path="/" />
           <Home path="/home" />
           <Article path="articles/:article_id" user={this.state.user} />
           <ErrorPage default err={{ msg: "Not Found", status: "404" }} />
