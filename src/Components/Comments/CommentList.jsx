@@ -58,7 +58,9 @@ class CommentList extends Component {
           })}
         </ul>
         <div className="LoadMoreComments">
-          <button onClick={this.loadMoreComments}>Load More</button>
+          {this.state.comments.length % 10 === 0 ? (
+            <button onClick={this.loadMoreComments}>Load More</button>
+          ) : null}
         </div>
       </div>
     );
