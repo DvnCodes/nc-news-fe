@@ -69,3 +69,12 @@ export const deleteComment = comment_id => {
     })
     .catch(err => err);
 };
+
+export const postArticle = article => {
+  return axios
+    .post(baseURL + "articles", article)
+    .then(({ data }) => {
+      return data.article;
+    })
+    .catch(err => err);
+};

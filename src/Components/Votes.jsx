@@ -36,8 +36,6 @@ class Votes extends Component {
     );
   }
   handleVote = inc => {
-    console.log("id: ", this.props.content[`${this.props.type}_id`]);
-
     this.incrementVotes(this.props.content[`${this.props.type}_id`], inc);
     this.setState(currentState => {
       return { votes: currentState.votes + inc };

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import * as api from "../../api";
 import TopicList from "./TopicList";
-import { Router } from "@reach/router";
 import ArticleList from "../Articles/ArticleList";
 import "./Topics.css";
 import ErrorPage from "../ErrorPage";
+import PostArticleToTopic from "./PostArticleToTopic";
 
 class Topics extends Component {
   state = {
@@ -13,27 +13,6 @@ class Topics extends Component {
     err: null
   };
 
-  getTopics = () => {
-    api
-      .fetchTopics()
-      .then(topics => {
-        this.setState({ topics });
-      })
-      .catch(err => {
-        return console.log(err.response);
-      });
-  };
-  getArticles = () => {
-    api
-      .fetchArticles(this.props.topic, null, null, null)
-      .then(articles => {
-        this.setState({ articles });
-      })
-      .catch(err => {
-        const { status, data } = err.response;
-        this.setState({ err: { msg: data.msg, status: status } });
-      });
-  };
   componentDidMount() {
     this.getTopics();
     this.getArticles();
@@ -55,7 +34,18 @@ class Topics extends Component {
             <div>
               {this.props.topic ? (
                 // <Router className="topicsArticleList">
-                <ArticleList articles={this.state.articles} />
+                <>
+                  {this.props.user ? (
+                    <PostArticleToTopic
+                      topic={this.props.topic}
+                      user={this.props.user}
+                      addArticle={this.addArticle}
+                    />
+                  ) : (
+                    <p>Log in to post an article</p>
+                  )}
+                  <ArticleList articles={this.state.articles} />
+                </>
               ) : null}
               {/* </Router> */}
             </div>
@@ -66,6 +56,34 @@ class Topics extends Component {
       </div>
     );
   }
+  getTopics = () => {
+    api
+      .fetchTopics()
+      .then(topics => {
+        this.setState({ topics });
+      })
+      .catch(err => {
+        return console.log(err.response);
+      });
+  };
+  getArticles = () => {
+    api
+      .fetchArticles(this.props.topic, null, null, null)
+      .then(articles => {
+        this.setState({ articles });
+      })
+      .catch(err => {
+        const { status, data } = err.response;
+        this.setState({ err: { msg: data.msg, status: status } });
+      });
+  };
+
+  addArticle = article => {
+    this.setState(currentState => {
+      const newArticles = [article, ...currentState.articles];
+      return { articles: newArticles };
+    });
+  };
 }
 
 export default Topics;
