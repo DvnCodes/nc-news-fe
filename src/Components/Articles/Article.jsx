@@ -3,7 +3,6 @@ import { fetchArticle } from "../../api";
 import Toggle from "../Toggle";
 import CommentList from "../Comments/CommentList";
 import "./Article.css";
-import Votes from "../Votes";
 import ErrorPage from "../ErrorPage";
 
 class Article extends Component {

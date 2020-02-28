@@ -6,7 +6,7 @@
   margin: 5px;
   text-align: center;
   padding: 0;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 h1 {
   color: rgb(173, 10, 52);
@@ -41,7 +41,7 @@ h1 {
 }
 
 .listbox p {
-  font-size: 0.8em;
+  font-size: 0.7em;
 }
 
 .listbox .sortButtons {
@@ -56,18 +56,19 @@ h1 {
   color: white;
   background-color: rosybrown;
   padding: 5px;
-  width: 7em;
+  width: 6em;
   border-radius: 25px;
 }
 
 .upvoteButton button {
   -webkit-appearance: none;
-  font-size: 1em;
+  font-size: 1.5em;
   color: lightgray;
   margin: 0em;
   padding: 0;
   background-color: transparent;
   border: none;
+  text-align: end;
 }
 .upvoteButton button:disabled {
   color: mediumspringgreen;
@@ -75,12 +76,13 @@ h1 {
 
 .downvoteButton button {
   -webkit-appearance: none;
-  font-size: 1em;
+  font-size: 1.5em;
   color: lightgray;
   margin: 0em;
   padding: 0;
   background-color: transparent;
   border: none;
+  text-align: end;
 }
 
 .downvoteButton button:disabled {
@@ -115,9 +117,9 @@ h1 {
   margin: 0;
 }
 
-.postButton {
-  font-size: 4vh;
-  height: 8vh;
+.commentBox .postButton {
+  font-size: 2em;
+  height: 2em;
   color: white;
   background-color: mediumpurple;
   border-radius: 25px;
@@ -131,7 +133,20 @@ textarea {
   display: flex;
   justify-content: center;
   flex-direction: row-reverse;
+  padding: 20px;
 }
+.pageButtons .pageNum {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+
 .pageButtons button {
+  -webkit-appearance: none;
   font-size: 1em;
+  height: 1.5em;
+
+  color: white;
+  background-color: mediumpurple;
+  border-radius: 25px;
 }

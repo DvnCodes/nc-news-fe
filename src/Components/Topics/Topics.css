@@ -1,11 +1,11 @@
 .topicList {
   display: flex;
-  list-style: none;
   flex-wrap: wrap;
-  padding: 0;
   justify-content: center;
   margin: 20px;
-  height: 150px;
+  /* height: 150px; */
+  list-style: none;
+  padding: 0;
 }
 
 .topicsArticleList {
@@ -32,4 +32,9 @@
 }
 .topicCard p {
   margin: 0, 0, 0, 0;
+}
+
+.topics {
+  display: flex;
+  flex-direction: column;
 }

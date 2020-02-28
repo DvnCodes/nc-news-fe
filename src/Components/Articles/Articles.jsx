@@ -10,12 +10,6 @@ class Articles extends Component {
     page: 1
   };
 
-  getArticles = (topic, sort, limit, p) => {
-    api.fetchArticles(topic, sort, limit, p).then(articles => {
-      this.setState({ articles });
-    });
-  };
-
   componentDidMount() {
     this.getArticles();
   }
@@ -39,7 +33,7 @@ class Articles extends Component {
           {this.state.articles.length < 10 ? null : (
             <button onClick={() => this.changePage("next")}>NEXT</button>
           )}
-          {this.state.page}{" "}
+          <span className="pageNum"> {this.state.page}</span>
           {this.state.page > 1 ? (
             <button onClick={() => this.changePage("prev")}>PREV</button>
           ) : null}
@@ -47,6 +41,11 @@ class Articles extends Component {
       </div>
     );
   }
+  getArticles = (topic, sort, limit, p) => {
+    api.fetchArticles(topic, sort, limit, p).then(articles => {
+      this.setState({ articles });
+    });
+  };
 
   changePage = page => {
     if (page === "reset") {
