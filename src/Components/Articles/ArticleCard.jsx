@@ -17,8 +17,6 @@ class ArticleCard extends Component {
   }
 
   render() {
-    console.log(this.props.article);
-
     return (
       <li className="card">
         <Link to={`/articles/${this.props.article.article_id}`}>

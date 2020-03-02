@@ -69,14 +69,14 @@ ul {
   padding: 0;
 }
 
-ul {
+.articles ul {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 10px;
 }
-li {
+.card {
   background-color: gainsboro;
   border-top-left-radius: 0;
   border-radius: 10px;
@@ -207,4 +207,39 @@ article {
   text-align: left;
   color: firebrick;
   padding: 0 15px 15px 15px;
+}
+
+/* .comment {
+  display: flex;
+  flex-direction: row-reverse;
+  border-top: groove;
+  align-items: center;
+  justify-content: justify;
+} */
+
+.comment {
+  display: inline-grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-areas: "body vote";
+  border-top: groove;
+  width: 100%;
+  padding: 10px;
+}
+.commentBody {
+  margin: 10px 10px 0 10px;
+}
+.commentInfo {
+  text-align: justify;
+  grid-area: body;
+}
+
+.comment .voteDiv {
+  grid-area: vote;
+  padding: 20px;
+}
+
+.commentStamp {
+  margin: 0 10px 10px 10px;
+
+  color: firebrick;
 }

@@ -33,7 +33,7 @@ class CommentList extends Component {
         <ul>
           {this.state.comments.map(comment => {
             return (
-              <li key={comment.comment_id}>
+              <li className="comment" key={comment.comment_id}>
                 {comment.author === this.props.user ? (
                   <button
                     className="deleteCommentButton"
@@ -47,7 +47,7 @@ class CommentList extends Component {
                   <Votes content={comment} type="comment" />
                 )}
                 <div className="commentInfo">
-                  <p>{comment.body}</p>
+                  <p className="commentBody">{comment.body}</p>
                   <p className="commentStamp">
                     {new Date(Date.parse(comment.created_at)).toLocaleString()}{" "}
                     by {comment.author}
