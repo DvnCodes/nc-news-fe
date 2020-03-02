@@ -2,17 +2,20 @@
 
 A simple reddit-like news application. Built with React, JavaScript and CSS.
 
+- [HOSTED VERSION](https://laughing-euclid-b669ca.netlify.com/home)
+
 <!-- ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+-->
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Minimum version of node required: v12.12.0
 
-```
+<!-- ```
 Give examples
-``` -->
+```  -->
 
 ### Installing
 

@@ -1,10 +1,4 @@
-/* .CommentList {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  flex-wrap: wrap;
-} */
-
+/* 
 .CommentList ul {
   display: flex;
   flex-flow: column wrap;
@@ -26,7 +20,6 @@
   margin: 10px;
   background-color: rgb(59, 59, 59);
   color: white;
-  /* padding: 30px; */
   border-radius: 25px;
 }
 
@@ -76,4 +69,4 @@
 }
 .CommentsToggleContainer {
   align-items: center;
-}
+} */

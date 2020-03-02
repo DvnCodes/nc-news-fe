@@ -1,4 +1,4 @@
-.listbox {
+/* .listbox {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,10 +14,6 @@ h1 {
   font-size: 2em;
   margin: 1vh;
 }
-/* .listbox h1 {
-  margin: 0;
-  text-align: center;
-} */
 
 .listbox h2 {
   text-align: center;
@@ -74,16 +70,7 @@ h1 {
   color: mediumspringgreen;
 }
 
-.downvoteButton button {
-  -webkit-appearance: none;
-  font-size: 1.5em;
-  color: lightgray;
-  margin: 0em;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  text-align: end;
-}
+
 
 .downvoteButton button:disabled {
   color: mediumvioletred;
@@ -149,4 +136,4 @@ textarea {
   color: white;
   background-color: mediumpurple;
   border-radius: 25px;
-}
+} */

@@ -15,15 +15,17 @@ class App extends Component {
     return (
       <div className="App">
         <Header login={this.login} user={this.state.user} />
-        <Router>
-          <Articles path="/articles" />
-          <Topics path="/topics" />
-          <Topics path="topics/:topic" user={this.state.user} />
-          <Home path="/" />
-          <Home path="/home" />
-          <Article path="articles/:article_id" user={this.state.user} />
-          <ErrorPage default err={{ msg: "Not Found", status: "404" }} />
-        </Router>
+        <main>
+          <Router>
+            <Articles path="/articles" />
+            <Topics path="/topics" />
+            <Topics path="topics/:topic" user={this.state.user} />
+            <Home path="/" />
+            <Home path="/home" />
+            <Article path="articles/:article_id" user={this.state.user} />
+            <ErrorPage default err={{ msg: "Not Found", status: "404" }} />
+          </Router>
+        </main>
       </div>
     );
   }

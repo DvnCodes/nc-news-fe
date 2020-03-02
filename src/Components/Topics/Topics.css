@@ -1,9 +1,8 @@
-.topicList {
+/* .topicList {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 20px;
-  /* height: 150px; */
   list-style: none;
   padding: 0;
 }
@@ -37,4 +36,4 @@
 .topics {
   display: flex;
   flex-direction: column;
-}
+} */
