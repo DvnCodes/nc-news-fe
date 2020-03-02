@@ -18,7 +18,7 @@ class Votes extends Component {
               this.handleVote(1);
             }}
           >
-            ⬆
+            ⬆&#xFE0E;
           </button>
         </div>
         <p>{this.state.votes}</p>
@@ -29,7 +29,7 @@ class Votes extends Component {
               this.handleVote(-1);
             }}
           >
-            ⬇
+            ⬇&#xFE0E;
           </button>
         </div>
       </div>

@@ -144,6 +144,7 @@ h2 {
 }
 
 .card .articlecardvotes .voteDiv {
+  padding: 5px;
   display: inline-grid;
   grid-template-columns: 100px;
   grid-template-rows: auto;
@@ -229,7 +230,7 @@ article {
   margin: 10px 10px 0 10px;
 }
 .commentInfo {
-  text-align: justify;
+  text-align: left;
   grid-area: body;
 }
 

@@ -10,8 +10,6 @@ class ArticleCard extends Component {
   };
   componentDidMount() {
     fetchArticle(this.props.article.article_id).then(article => {
-      console.log(article);
-
       this.setState({ body: article.body });
     });
   }
