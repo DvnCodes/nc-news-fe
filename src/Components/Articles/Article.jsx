@@ -63,9 +63,15 @@ class Article extends Component {
 
   getArticle = () => {
     if (isNaN(this.props.article_id)) {
-      this.setState({ err: { msg: "Bad Request", status: "400" } });
+      this.setState({
+        err: { msg: "Bad Request", status: "400" },
+        isLoading: false
+      });
     } else if (this.props.article_id > 999999999) {
-      this.setState({ err: { msg: "Not Found", status: "404" } });
+      this.setState({
+        err: { msg: "Not Found", status: "404" },
+        isLoading: false
+      });
     } else {
       fetchArticle(this.props.article_id)
         .then(article => {
@@ -73,7 +79,10 @@ class Article extends Component {
         })
         .catch(err => {
           const { status, data } = err.response;
-          this.setState({ err: { msg: data.msg, status: status } });
+          this.setState({
+            err: { msg: data.msg, status: status },
+            isLoading: false
+          });
         });
     }
   };

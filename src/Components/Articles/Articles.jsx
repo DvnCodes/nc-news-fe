@@ -54,9 +54,7 @@ class Articles extends Component {
       .then(articles => {
         this.setState({ articles, isLoading: false });
       })
-      .catch(err => {
-        return console.log(err.response);
-      });
+      .catch(err => err);
   };
 
   changePage = page => {

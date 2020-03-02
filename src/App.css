@@ -263,7 +263,6 @@ textarea {
 .postArticleForm {
   display: flex;
   flex-direction: column;
-  border: solid red;
 }
 
 .sortButtons {
@@ -275,4 +274,9 @@ textarea {
 .sortButtons button {
   width: 20%;
   margin: 10px;
+}
+
+body {
+  margin: 0;
+  background-color: silver;
 }
