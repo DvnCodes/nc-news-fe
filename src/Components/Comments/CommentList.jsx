@@ -21,8 +21,8 @@ class CommentList extends Component {
           <form className="commentBox" onSubmit={this.handleSubmit}>
             <textarea
               required
-              cols="50"
-              rows="5"
+              // cols="50"
+              // rows="5"
               onChange={this.handleChange}
             ></textarea>
             <button className="postButton">Post!</button>

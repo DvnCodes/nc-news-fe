@@ -33,7 +33,7 @@ const ArticleList = props => {
           </button>
         </div>
       ) : null}
-      <ul className="topicsArticleList">
+      <ul>
         {props.articles.map(article => {
           return <ArticleCard key={article.article_id} article={article} />;
         })}

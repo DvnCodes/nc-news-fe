@@ -1,3 +1,11 @@
+.commentBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
 /* 
 .CommentList ul {
   display: flex;
@@ -29,13 +37,7 @@
   flex-wrap: wrap;
 }
 
-.commentBox {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-}
+
 
 .commentStamp {
   width: fit-content;

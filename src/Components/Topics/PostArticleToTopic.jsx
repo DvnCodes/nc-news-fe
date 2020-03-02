@@ -7,7 +7,7 @@ class PostArticleToTopic extends Component {
     return (
       <div>
         <p>Post Article To: {this.props.topic}</p>
-        <form onSubmit={this.handleSubmit}>
+        <form className="postArticleForm" onSubmit={this.handleSubmit}>
           <label>
             Title:
             <input
@@ -19,12 +19,12 @@ class PostArticleToTopic extends Component {
           </label>
           <label>
             Article:
-            <input
+            <textarea
               name="body"
               type="text"
               onChange={this.handleChange}
               required
-            ></input>
+            ></textarea>
           </label>
           <button>Post</button>
         </form>
