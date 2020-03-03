@@ -36,7 +36,16 @@ class Article extends Component {
 
                 {this.props.user === article.author ? (
                   <Link to="/articles">
-                    <button onClick={this.handleDelete}>Delete</button>
+                    <button
+                      className="deleteArticleButton"
+                      onClick={this.handleDelete}
+                    >
+                      <img
+                        src={require("../../images/cross.png")}
+                        width="25em"
+                        alt="delete icon"
+                      ></img>
+                    </button>
                   </Link>
                 ) : null}
 

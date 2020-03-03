@@ -5,8 +5,8 @@ class PostArticleToTopic extends Component {
   state = { title: "", body: "" };
   render() {
     return (
-      <div>
-        <p>Post Article To: {this.props.topic}</p>
+      <div className="postArticle">
+        <h3>Post Article: {this.props.topic}</h3>
         <form className="postArticleForm" onSubmit={this.handleSubmit}>
           <label>
             Title:
@@ -14,6 +14,7 @@ class PostArticleToTopic extends Component {
               name="title"
               type="text"
               onChange={this.handleChange}
+              value={this.state.title}
               required
             ></input>
           </label>
@@ -23,10 +24,18 @@ class PostArticleToTopic extends Component {
               name="body"
               type="text"
               onChange={this.handleChange}
+              value={this.state.body}
               required
             ></textarea>
           </label>
-          <button>Post</button>
+          <div className="postArticleButtonContaner"></div>
+          <button className="postArticleButton">
+            <img
+              src={require("../../images/plus.png")}
+              width="25em"
+              alt="post icon"
+            ></img>
+          </button>
         </form>
       </div>
     );
@@ -51,7 +60,9 @@ class PostArticleToTopic extends Component {
     api.postArticle(article).then(article => {
       this.props.addArticle(article);
     });
+    this.setState({ title: "", body: "" });
   };
+  "";
 }
 
 export default PostArticleToTopic;

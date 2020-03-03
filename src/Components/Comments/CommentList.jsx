@@ -40,7 +40,11 @@ class CommentList extends Component {
                       return this.removeComment(comment.comment_id);
                     }}
                   >
-                    Delete
+                    <img
+                      src={require("../../images/cross.png")}
+                      width="25em"
+                      alt="delete icon"
+                    ></img>
                   </button>
                 ) : (
                   <Votes content={comment} type="comment" />

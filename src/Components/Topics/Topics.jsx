@@ -47,7 +47,7 @@ class Topics extends Component {
                           addArticle={this.addArticle}
                         />
                       ) : (
-                        <p>Log in to post an article</p>
+                        <h3>Log in to post an article</h3>
                       )}
                       <ArticleList articles={this.state.articles} />
                     </>

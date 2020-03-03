@@ -7,7 +7,7 @@ class Header extends Component {
       <header>
         <div className="header">
           <img
-            src={require("../northcoders-logo.png")}
+            src={require("../images/northcoders-logo.png")}
             alt="logo"
             width="250px"
           />
@@ -15,6 +15,11 @@ class Header extends Component {
           <Nav />
           {!this.props.user ? (
             <div className="loginContainer">
+              <img
+                src={require("../images/user.png")}
+                width="25em"
+                alt="user icon"
+              ></img>
               <button onClick={this.props.login}>Login as cooljmessy</button>
             </div>
           ) : (

@@ -4,7 +4,7 @@
   margin: 0;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 220px 1fr;
+  grid-template-rows: 230px 1fr;
   grid-template-areas:
     "header header"
     "main main";
@@ -26,6 +26,9 @@ header h1 {
 }
 header .loginContainer {
   margin: 10px;
+}
+header .loginContainer img {
+  vertical-align: sub;
 }
 header .loginContainer button {
   -webkit-appearance: none;
@@ -98,7 +101,6 @@ h2 {
   padding: 5px;
   border-radius: 10px;
   max-height: 30px;
-
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -217,7 +219,7 @@ article {
 
 .comment {
   display: inline-grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: 9fr 1fr;
   grid-template-areas: "body vote";
   border-top: groove;
   width: 100%;
@@ -289,4 +291,24 @@ body {
 
 .pageButtons span {
   margin: 20px;
+}
+
+.deleteCommentButton,
+.deleteArticleButton,
+.postArticleButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+.postArticleButtonContainer {
+  width: 30px;
+}
+
+.postArticle {
+  background-color: sandybrown;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 20px;
 }
