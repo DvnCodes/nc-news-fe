@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Votes from "../Votes";
 import * as api from "../../api";
-import "./CommentList.css";
 
 class CommentList extends Component {
   state = {

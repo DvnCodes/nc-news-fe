@@ -1,14 +1,7 @@
 .App {
-  /* display: flex; */
-  /* flex-direction: row;
-  justify-content: center;
-  align-items: center; */
   font-family: "Montserrat", sans-serif;
   background-color: silver;
   margin: 0;
-
-  /* padding: 20px 20px; */
-  /* text-align: center; */
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 220px 1fr;
@@ -24,14 +17,10 @@ header {
   margin: 0px;
   padding: 20px;
   text-align: center;
-  /* display: flex; */
-  /* flex-direction: rows; */
-  /* justify-content: center; */
 }
 
 header h1 {
   font-size: 2em;
-
   margin: 10px;
   padding: 0;
 }
@@ -46,6 +35,23 @@ header .loginContainer button {
   color: sandybrown;
   border-radius: 25px;
   font-size: 1em;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: aliceblue;
+  text-align: center;
+  border-radius: 25px;
+  margin: 10px;
+  padding: 5px;
+  border: solid white;
+}
+
+span:hover {
+  background-color: sandybrown;
+  padding: 3px;
+  border-radius: 25px;
 }
 
 a {
@@ -105,7 +111,7 @@ h2 {
     "title title"
     "body body"
     "left right";
-  height: 250px;
+  height: 220px;
   padding: 10px;
   margin: 10px;
 }
@@ -116,7 +122,7 @@ h2 {
   align-content: center;
 }
 .card .articlepreview p {
-  font-size: 0.7em;
+  font-size: 0.8em;
   padding: 10px;
   margin: 5px;
   white-space: nowrap;
@@ -126,7 +132,7 @@ h2 {
 
 .card a {
   grid-area: title;
-  font-size: 0.6em;
+  font-size: 0.7em;
   margin: 5px;
   justify-self: stretch;
 }
@@ -138,7 +144,7 @@ h2 {
 .card .articleinfo {
   padding: 0;
   margin: 5px;
-  font-size: 0.6em;
+  font-size: 0.7em;
   grid-area: left;
 }
 
@@ -174,9 +180,7 @@ h2 {
 .downvoteButton button {
   -webkit-appearance: none;
   font-size: 1em;
-  /* color: gray; */
   background-color: sandybrown;
-  /* border: none; */
   border-radius: 25px;
   text-align: end;
 }
@@ -211,14 +215,6 @@ article {
   margin-left: 20px;
 }
 
-/* .comment {
-  display: flex;
-  flex-direction: row-reverse;
-  border-top: groove;
-  align-items: center;
-  justify-content: justify;
-} */
-
 .comment {
   display: inline-grid;
   grid-template-columns: 4fr 1fr;
@@ -248,10 +244,6 @@ article {
   color: firebrick;
 }
 
-.topicsArticleList {
-  border: solid red;
-}
-
 textarea {
   width: 90%;
   height: 100px;
@@ -272,11 +264,29 @@ textarea {
   justify-content: center;
 }
 .sortButtons button {
-  width: 20%;
   margin: 10px;
 }
 
 body {
   margin: 0;
   background-color: silver;
+}
+
+.commentBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.pageButtons {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-content: center;
+}
+
+.pageButtons span {
+  margin: 20px;
 }

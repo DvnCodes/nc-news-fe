@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ArticleList from "./ArticleList";
 import * as api from "../../api";
-import "./Articles.css";
 
 class Articles extends Component {
   state = {
@@ -38,7 +37,7 @@ class Articles extends Component {
               {this.state.articles.length < 10 ? null : (
                 <button onClick={() => this.changePage("next")}>NEXT</button>
               )}
-              <span className="pageNum"> {this.state.page}</span>
+              <span> {this.state.page}</span>
               {this.state.page > 1 ? (
                 <button onClick={() => this.changePage("prev")}>PREV</button>
               ) : null}

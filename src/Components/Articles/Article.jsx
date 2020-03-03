@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { fetchArticle, deleteArticle } from "../../api";
 import Toggle from "../Toggle";
 import CommentList from "../Comments/CommentList";
-import "./Article.css";
 import ErrorPage from "../ErrorPage";
 import { Link } from "@reach/router";
 

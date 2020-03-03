@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ArticleList from "./Articles/ArticleList";
 import * as api from "../api";
-import "./Home.css";
 
 class Home extends Component {
   state = { newest3: [], top3: [] };

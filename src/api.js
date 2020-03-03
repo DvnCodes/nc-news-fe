@@ -19,7 +19,7 @@ export const fetchArticles = (topic, sort, limit, p) => {
 
 export const fetchTopics = () => {
   return axios
-    .get("https://dans-nc-news.herokuapp.com/api/topics")
+    .get(baseURL + "topics")
     .then(({ data }) => {
       return data.topics;
     })
@@ -51,10 +51,7 @@ export const patchContentVotes = (id, inc, type) => {
 
 export const postComment = (body, username, article_id) => {
   return axios
-    .post(
-      `https://dans-nc-news.herokuapp.com/api/articles/${article_id}/comments`,
-      { body, username }
-    )
+    .post(`${baseURL}articles/${article_id}/comments`, { body, username })
     .then(({ data }) => {
       return data;
     })
@@ -63,7 +60,7 @@ export const postComment = (body, username, article_id) => {
 
 export const deleteComment = comment_id => {
   return axios
-    .delete(`https://dans-nc-news.herokuapp.com/api/comments/${comment_id}`)
+    .delete(`${baseURL}comments/${comment_id}`)
     .then(({ data }) => {
       return data;
     })
@@ -81,7 +78,7 @@ export const postArticle = article => {
 
 export const deleteArticle = article_id => {
   return axios
-    .delete(`https://dans-nc-news.herokuapp.com/api/articles/${article_id}`)
+    .delete(`${baseURL}articles/${article_id}`)
     .then(({ data }) => {
       return data;
     })

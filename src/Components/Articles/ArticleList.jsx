@@ -1,6 +1,5 @@
 import React from "react";
 import ArticleCard from "./ArticleCard";
-import "./Articles.css";
 
 const ArticleList = props => {
   return (

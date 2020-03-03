@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import "./ArticleCard.css";
+
 import Votes from "../Votes";
 import { fetchArticle } from "../../api";
 
