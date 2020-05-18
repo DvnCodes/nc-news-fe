@@ -2,7 +2,7 @@
 
 A simple reddit-like news application. Built with React, JavaScript and CSS.
 
-- [HOSTED VERSION](https://laughing-euclid-b669ca.netlify.com/home)
+- [HOSTED VERSION](https://dansncnews.netlify.app/home)
 
 <!-- ## Getting Started
 
