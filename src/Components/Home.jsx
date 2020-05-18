@@ -8,7 +8,7 @@ class Home extends Component {
     return (
       <div className="home">
         <h1>Home</h1>
-        <h2 className="newest3">Newest Articles</h2>
+        <h3 className="newest3">Newest Articles</h3>
         <div className="homelist">
           {!this.state.isLoading ? (
             <ArticleList articles={this.state.newest3} />
@@ -29,10 +29,10 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    api.fetchArticles(undefined, "created_at", 3).then(res => {
+    api.fetchArticles(undefined, "created_at", 3).then((res) => {
       this.setState({ newest3: res });
     });
-    api.fetchArticles(undefined, "votes", 3).then(res => {
+    api.fetchArticles(undefined, "votes", 3).then((res) => {
       this.setState({ top3: res, isLoading: false });
     });
   }

@@ -1,6 +1,6 @@
 .App {
   font-family: "Montserrat", sans-serif;
-  background-color: silver;
+  background-color: white;
   margin: 0;
   display: grid;
   grid-template-columns: 1fr;
@@ -12,7 +12,7 @@
 
 header {
   grid-area: header;
-  background-color: rgb(59, 59, 59);
+  background-color: sandybrown;
   color: white;
   margin: 0px;
   padding: 20px;
@@ -21,11 +21,11 @@ header {
 
 header h1 {
   font-size: 2em;
-  margin: 10px;
+  margin: 5px;
   padding: 0;
 }
 header .loginContainer {
-  margin: 10px;
+  margin: 5px;
 }
 header .loginContainer img {
   vertical-align: sub;
@@ -34,8 +34,8 @@ header .loginContainer button {
   -webkit-appearance: none;
   text-align: center;
   border: solid white;
-  background-color: rgb(59, 59, 59);
-  color: sandybrown;
+  background-color: sandybrown;
+  color: white;
   border-radius: 25px;
   font-size: 1em;
 }
@@ -43,12 +43,13 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  color: aliceblue;
+  color: black;
   text-align: center;
   border-radius: 25px;
   margin: 10px;
   padding: 5px;
-  border: solid white;
+  border: solid rgb(59, 59, 59);
+  background-color: white;
 }
 
 span:hover {
@@ -68,7 +69,7 @@ main {
 }
 
 main h1 {
-  background-color: sandybrown;
+  background-color: white;
   margin: 0;
   /* padding: 10px; */
 }
@@ -94,9 +95,9 @@ ul {
 
 h2 {
   text-align: center;
-  background-color: rgb(59, 59, 59);
-  color: sandybrown;
-  border: solid white;
+  background-color: white;
+  color: black;
+  border: solid sandybrown;
   border-radius: 25px;
   padding: 5px;
   border-radius: 10px;
@@ -174,7 +175,7 @@ h2 {
 
 .card h2:hover {
   /* background-color: rgb(173, 10, 52); */
-  background-color: sandybrown;
+  background-color: white;
   color: rgb(59, 59, 59);
 }
 
@@ -198,7 +199,7 @@ h2 {
 
 .topicList a h2 {
   font-size: 1em;
-  background-color: rgb(173, 10, 52);
+  background-color: sandybrown;
   color: white;
   border: solid rgb(59, 59, 59);
 }
@@ -241,7 +242,6 @@ article {
 
 .commentStamp {
   font-size: 0.8em;
-
   margin: 0 15px 15px 15px;
   color: firebrick;
 }
@@ -271,7 +271,7 @@ textarea {
 
 body {
   margin: 0;
-  background-color: silver;
+  background-color: sandybrown;
 }
 
 .commentBox {
