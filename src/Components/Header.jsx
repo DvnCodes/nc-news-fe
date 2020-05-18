@@ -20,7 +20,9 @@ class Header extends Component {
                 width="25em"
                 alt="user icon"
               ></img>
-              <button onClick={this.props.login}>Login as cooljmessy</button>
+              <button onClick={this.props.login("cooljmessy")}>
+                Login as cooljmessy
+              </button>
             </div>
           ) : (
             <p>Logged in as {this.props.user}</p>
