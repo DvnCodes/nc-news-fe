@@ -16,7 +16,7 @@ class Home extends Component {
             <h3>Loading...</h3>
           )}
         </div>
-        <h2>Top Rated</h2>
+        <h3>Top Rated</h3>
         <div className="homelist">
           {!this.state.isLoading ? (
             <ArticleList className="homelist" articles={this.state.top3} />
