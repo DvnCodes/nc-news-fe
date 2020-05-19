@@ -47,8 +47,8 @@ const Header = (props) => {
                   Select User
                 </option>
 
-                {users.map((user) => {
-                  return <option>{user.username}</option>;
+                {users.map((user, i) => {
+                  return <option key={i}>{user.username}</option>;
                 })}
               </select>
               <input type="submit" value="Login" disabled={login} />
