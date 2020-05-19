@@ -1,8 +1,8 @@
 import axios from "axios";
 
-// const baseURL = "https://dans-nc-news.herokuapp.com/api/";
-// MUST CHANGE THIS BEFORE HEROKU PUSH
-const baseURL = "http://localhost:9090/api/";
+const baseURL = "https://dans-nc-news.herokuapp.com/api/";
+// MUST CHANGE THIS BEFORE PUSHING TO MASTER
+// const baseURL = "http://localhost:9090/api/";
 
 export const fetchUsers = () => {
   return axios
