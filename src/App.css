@@ -4,7 +4,7 @@
   margin: 0;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 230px 1fr;
+  grid-template-rows: 240px 1fr;
   grid-template-areas:
     "header header"
     "main main";
@@ -30,15 +30,20 @@ header .loginContainer {
 header .loginContainer img {
   vertical-align: sub;
 }
-header .loginContainer button {
+header .loginContainer input {
   -webkit-appearance: none;
   text-align: center;
-  border: solid white;
-  background-color: sandybrown;
-  color: white;
+  border: solid rgb(59, 59, 59);
+  background-color: white;
+  color: rgb(59, 59, 59);
   border-radius: 25px;
   font-size: 1em;
 }
+header .loginContainer select {
+  -webkit-appearance: none;
+  padding: 5px;
+}
+
 nav {
   display: flex;
   flex-direction: row;

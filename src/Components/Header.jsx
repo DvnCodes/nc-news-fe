@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Nav from "./Nav";
 import * as api from "../api";
 
 const Header = (props) => {
   const [users, setUsers] = React.useState([]);
   const [user, setUser] = React.useState([]);
+  const [login, setLogin] = React.useState(true);
 
   useEffect(() => {
     api.fetchUsers().then((res) => {
       setUsers(res);
-      setUser(res[0].username);
+      // setUser(res[0].username);
     });
   }, []);
 
@@ -38,14 +39,19 @@ const Header = (props) => {
               <select
                 onChange={(e) => {
                   e.preventDefault();
+                  setLogin(false);
                   setUser(e.target.value);
                 }}
               >
+                <option value="" disabled selected>
+                  Select User
+                </option>
+
                 {users.map((user) => {
                   return <option>{user.username}</option>;
                 })}
               </select>
-              <button>Login</button>
+              <input type="submit" value="Login" disabled={login} />
             </form>
           </div>
         ) : (
