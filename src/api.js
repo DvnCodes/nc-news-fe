@@ -1,6 +1,17 @@
 import axios from "axios";
 
-const baseURL = "https://dans-nc-news.herokuapp.com/api/";
+// const baseURL = "https://dans-nc-news.herokuapp.com/api/";
+// MUST CHANGE THIS BEFORE HEROKU PUSH
+const baseURL = "http://localhost:9090/api/";
+
+export const fetchUsers = () => {
+  return axios
+    .get(baseURL + "users")
+    .then(({ data }) => {
+      return data.users;
+    })
+    .catch((err) => err);
+};
 
 export const fetchArticles = (topic, sort, limit, p) => {
   return axios
@@ -9,8 +20,8 @@ export const fetchArticles = (topic, sort, limit, p) => {
         topic: topic,
         sort_by: sort,
         limit: limit,
-        p: p
-      }
+        p: p,
+      },
     })
     .then(({ data }) => {
       return data.articles;
@@ -23,10 +34,10 @@ export const fetchTopics = () => {
     .then(({ data }) => {
       return data.topics;
     })
-    .catch(err => err);
+    .catch((err) => err);
 };
 
-export const fetchArticle = id => {
+export const fetchArticle = (id) => {
   return axios.get(baseURL + "articles/" + id).then(({ data }) => data.article);
 };
 
@@ -34,8 +45,8 @@ export const fetchComments = (id, limit) => {
   return axios
     .get(baseURL + "articles/" + id + "/comments", {
       params: {
-        limit: limit
-      }
+        limit: limit,
+      },
     })
     .then(({ data }) => data.comments);
 };
@@ -46,7 +57,7 @@ export const patchContentVotes = (id, inc, type) => {
     .then(({ data }) => {
       return data[type];
     })
-    .catch(err => err);
+    .catch((err) => err);
 };
 
 export const postComment = (body, username, article_id) => {
@@ -55,32 +66,32 @@ export const postComment = (body, username, article_id) => {
     .then(({ data }) => {
       return data;
     })
-    .catch(err => err);
+    .catch((err) => err);
 };
 
-export const deleteComment = comment_id => {
+export const deleteComment = (comment_id) => {
   return axios
     .delete(`${baseURL}comments/${comment_id}`)
     .then(({ data }) => {
       return data;
     })
-    .catch(err => err);
+    .catch((err) => err);
 };
 
-export const postArticle = article => {
+export const postArticle = (article) => {
   return axios
     .post(baseURL + "articles", article)
     .then(({ data }) => {
       return data.article;
     })
-    .catch(err => err);
+    .catch((err) => err);
 };
 
-export const deleteArticle = article_id => {
+export const deleteArticle = (article_id) => {
   return axios
     .delete(`${baseURL}articles/${article_id}`)
     .then(({ data }) => {
       return data;
     })
-    .catch(err => err);
+    .catch((err) => err);
 };
